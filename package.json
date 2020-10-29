@@ -1,0 +1,25 @@
+{
+    "name": "brabbot",
+    "version": "1.0.0",
+    "description": "A simple discordjs bot",
+    "main": "core.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "author": "ArthurC",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.21.0",
+        "concurrently": "^5.3.0",
+        "cors": "^2.8.5",
+        "discord.js": "^12.3.1",
+        "express": "^4.17.1",
+        "lowdb": "^1.0.0",
+        "shortid": "^2.2.15"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
