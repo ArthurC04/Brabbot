@@ -1,4 +1,9 @@
 {
+  "admins": [
+    {
+      "id": "259087087322529804"
+    }
+  ],
   "prefixes": [
     {
       "id": "UBaG3Db2f",
@@ -19,6 +24,114 @@
       "id": "rhx7nYWTV",
       "guildId": "730035593970581566",
       "prefix": "!"
+    }
+  ],
+  "items": [
+    {
+      "id": "1",
+      "name": "OriginalsPin",
+      "canSell": false,
+      "emojiId": "760825887574196314"
+    },
+    {
+      "id": "2",
+      "name": "DictatorPin",
+      "canSell": false,
+      "emojiId": "760960788529283152"
+    },
+    {
+      "id": "3",
+      "name": "InvadersPin",
+      "canSell": false,
+      "emojiId": "760960813610696726"
+    },
+    {
+      "id": "4",
+      "name": "TomoulisPin",
+      "canSell": false,
+      "emojiId": "760960859651964989"
+    },
+    {
+      "id": "5",
+      "name": "DevPin",
+      "canSell": false,
+      "emojiId": "760964141082607636"
+    },
+    {
+      "id": "6",
+      "name": "Pistola",
+      "canSell": true,
+      "emojiId": "761399733670641664"
+    }
+  ],
+  "inventories": [
+    {
+      "id": "oINvm4sDG",
+      "discordUserId": "445256273769005086",
+      "inventory": [
+        {
+          "id": "1",
+          "quantity": "1"
+        },
+        {
+          "id": "5",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "xShaIAaqN",
+      "discordUserId": "415641911890804747",
+      "inventory": [
+        {
+          "id": "1",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "ecryFe599",
+      "discordUserId": "523866696142815253",
+      "inventory": [
+        {
+          "id": "1",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "MgRq8907u",
+      "discordUserId": "697457895713013872",
+      "inventory": [
+        {
+          "id": "1",
+          "quantity": "1"
+        },
+        {
+          "id": "2",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "PTLXYUDMt",
+      "discordUserId": "599003520355794976",
+      "inventory": [
+        {
+          "id": "1",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "0QXg2IzYq",
+      "discordUserId": "259087087322529804",
+      "inventory": [
+        {
+          "id": "1",
+          "quantity": "1"
+        }
+      ]
     }
   ]
 }

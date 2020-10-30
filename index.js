@@ -13,6 +13,7 @@ const adapter = new FileSync('db.json');
 const db = low(adapter);
 
 client.on("ready",()=>{
+    client.user.setActivity("🚧 MANUTENÇÃO EM ANDAMENTO!");
     console.log(`Starting ${client.user.tag}...`);
 });
 

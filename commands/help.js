@@ -18,11 +18,13 @@ module.exports = async (client,msg) =>{
     }
 
     const descriptions = {
-        [`${prefix}ajuda`]: 'Lista dos comandos!',
+        [`${prefix}help`]: 'Lista dos comandos!',
         [`${prefix}among`]: 'Chame a galera pra jogar among us!',
         [`${prefix}clear`]: 'Limpar o chat!',
+        [`${prefix}covid`]: 'Mostra a situação da covid no Brasil!',
+        [`${prefix}inventario`]: 'Mostra seu inventário',
         [`${prefix}ping`]:  'Ver o ping do bot!',
-        [`${prefix}calcularequação`]: 'Cacalcular equação do segundo grau!',
+        [`${prefix}calcularequacao`]: 'Cacalcular equação do segundo grau!',
         [`${prefix}mudarprefixo`]: 'Mude o prefixo padrão do bot (@) para outro de sua preferência!',
     };
 
@@ -34,7 +36,9 @@ module.exports = async (client,msg) =>{
     
     const commands = commandsScript(prefix);
     Object.keys(commands).forEach(command => {
-        response.addField(`\n ${command}:`, `${descriptions[command] ? descriptions[command] : 'Nenhuma descrição!'}`)
+        if(command.startsWith(`${prefix}admin`) === false) {
+            response.addField(`\n ${command}:`, `${descriptions[command] ? descriptions[command] : 'Nenhuma descrição!'}`)
+        }
     });
     msg.channel.send(response);
 };
