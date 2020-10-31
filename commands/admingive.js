@@ -29,7 +29,7 @@ module.exports = async (client,msg) =>{
             .setColor('#011eff')
           );
     } else {
-      const taggedUserInventory = await db.get('inventories').find({discordUserId: taggedUser.id}).value();
+      const taggedUserInventory = await db.get('users').find({discordUserId: taggedUser.id}).value();
     const item_info = await db.get('items').find({name: itemName}).value();
     if(!item_info) {
         return msg.channel.send(
@@ -40,7 +40,7 @@ module.exports = async (client,msg) =>{
     } else {
       if(!taggedUserInventory) {
         await db
-        .get('inventories')
+        .get('users')
         .push({
             id: shortid.generate(),
             discordUserId: taggedUser.id,
@@ -55,23 +55,23 @@ module.exports = async (client,msg) =>{
           );
       } else {
         const taggedUserHaveItem = await  db
-        .get('inventories')
+        .get('users')
         .find({ discordUserId: taggedUser.id })
         .get('inventory')
         .find({id: item_info.id})
         .value();
 
         if(!taggedUserHaveItem) {
-              let inventory = db.get('inventories').find({ discordUserId: taggedUser.id }).get('inventory').value();
+              let inventory = db.get('users').find({ discordUserId: taggedUser.id }).get('inventory').value();
               inventory.push({id: item_info.id, quantity: '1'});
-              db.get('inventories').find({ discordUserId: taggedUser.id }).assign({ inventory }).write();
+              db.get('users').find({ discordUserId: taggedUser.id }).assign({ inventory }).write();
               return msg.channel.send(
                 new Discord.MessageEmbed()
                   .setTitle(':white_check_mark: Sucesso!')
                   .setColor('#011eff')
               );
         } else {
-          await db.get('inventories')
+          await db.get('users')
           .find({discordUserId: taggedUser.id})
           .get('inventory').find({ id: item_info.id})
           .assign({'quantity': `${parseInt(taggedUserHaveItem.quantity) + 1}`})

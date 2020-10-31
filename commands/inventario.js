@@ -11,10 +11,10 @@ module.exports = async (client,msg) =>{
         function emoji(id) {
             return client.emojis.cache.get(id).toString();
         }
-        const haveInventory = await db.get('inventories').find({discordUserId: msg.author.id}).value();
+        const haveInventory = await db.get('users').find({discordUserId: msg.author.id}).value();
         if(!haveInventory){
             await db
-            .get('inventories')
+            .get('users')
             .push({
                 id: shortid.generate(),
                 discordUserId: msg.author.id,
@@ -44,7 +44,8 @@ module.exports = async (client,msg) =>{
             });
             msg.channel.send(embed);
         }
-    } catch {
+    } catch (err) {
+        console.log(err);
         return msg.channel.send(
             new Discord.MessageEmbed()
               .setDescription(`:x: Algo deu errado! Tente entrar em contato com o desenvolvedor.`)

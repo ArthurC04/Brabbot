@@ -13,7 +13,7 @@ const adapter = new FileSync('db.json');
 const db = low(adapter);
 
 client.on("ready",()=>{
-    client.user.setActivity("🚧 MANUTENÇÃO EM ANDAMENTO!");
+    client.user.setActivity("🎮 Among Us");
     console.log(`Starting ${client.user.tag}...`);
 });
 
