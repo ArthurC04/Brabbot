@@ -7,7 +7,7 @@ const db = low(adapter);
 
 module.exports = async (client,msg) =>{
     try {
-        const isAdmin = await db.get('amongadmins').find({id: msg.author.id}).value();
+        const isAdmin = await db.get('amongadmins').find({discordUserId: msg.author.id}).value();
     if(!isAdmin) {
         return msg.channel.send(
             new Discord.MessageEmbed()

@@ -30,7 +30,7 @@ module.exports = async (client,msg) =>{
 
     const response = new Discord.MessageEmbed()
         .setTitle(':thinking: Ajuda!')
-        .setDescription(`Quais são meus comando e o que eles fazem:`)
+        .setDescription(`Quais são meus comandos e o que eles fazem:`)
         .setColor('#011eff')
         .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
     

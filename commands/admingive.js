@@ -8,7 +8,7 @@ const db = low(adapter);
 
 module.exports = async (client,msg) =>{
    try {
-    const isAdmin = await db.get('admins').find({id: msg.author.id}).value();
+    const isAdmin = await db.get('admins').find({discordUserId: msg.author.id}).value();
     if(!isAdmin) {
         return msg.channel.send(
             new Discord.MessageEmbed()
@@ -29,7 +29,7 @@ module.exports = async (client,msg) =>{
             .setColor('#011eff')
           );
     } else {
-      const taggedUserInventory = await db.get('users').find({discordUserId: taggedUser.id}).value();
+    const taggedUserInventory = await db.get('users').find({discordUserId: taggedUser.id}).value();
     const item_info = await db.get('items').find({name: itemName}).value();
     if(!item_info) {
         return msg.channel.send(

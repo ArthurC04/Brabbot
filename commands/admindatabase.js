@@ -8,7 +8,7 @@ const db = low(adapter);
 
 module.exports = async (client,msg) =>{
     try {
-        const isAdmin = await db.get('admins').find({id: msg.author.id}).value();
+        const isAdmin = await db.get('admins').find({discordUserId: msg.author.id}).value();
         if(!isAdmin) {
             return msg.channel.send(
                 new Discord.MessageEmbed()
@@ -18,7 +18,13 @@ module.exports = async (client,msg) =>{
               );
         } else {
             const database = new Discord.MessageAttachment('./db.json');
-            return msg.channel.send('```(CONFIDENCIAL)⚠️Database atual:```', database);
+            msg.author.send('```(CONFIDENCIAL)⚠️Database atual:```', database);
+            return msg.channel.send(
+                new Discord.MessageEmbed()
+                  .setDescription(`:white_check_mark:A database foi enviada em seu privado!`)
+                  .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+                  .setColor('#011eff')
+              );
         }   
     } catch (err) {
         console.log(err);
