@@ -25,7 +25,7 @@ module.exports = async (client,msg) =>{
             return msg.channel.send(
                 new Discord.MessageEmbed()
                   .setDescription(`:x: Você não possui nenhum item em seu inventário!`)
-                  .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+                  .setFooter('Brabbot 2021', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
                   .setColor('#011eff')
               );
         } else {
@@ -37,7 +37,7 @@ module.exports = async (client,msg) =>{
             let embed = new Discord.MessageEmbed()
             .setTitle(`🎒 Seu inventário:`)
             .setDescription('Aqui estão seus itens:')
-            .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+            .setFooter('Brabbot 2021', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
             .setColor('#011eff')
             player_inventory.forEach(item => {
                 embed.addField(`${emoji(item.emojiId)} ${item.name}`, `Quantidade: ${item.quantity}`);
@@ -49,7 +49,7 @@ module.exports = async (client,msg) =>{
         return msg.channel.send(
             new Discord.MessageEmbed()
               .setDescription(`:x: Algo deu errado! Tente entrar em contato com o desenvolvedor.`)
-              .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+              .setFooter('Brabbot 2021', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
               .setColor('#011eff')
           );
     }

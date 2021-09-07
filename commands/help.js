@@ -19,13 +19,12 @@ module.exports = async (client,msg) =>{
 
     const descriptions = {
         [`${prefix}help`]: 'Lista dos comandos!',
-        [`${prefix}among`]: 'Chame a galera pra jogar among us!',
         [`${prefix}clear`]: 'Limpar o chat!',
         [`${prefix}covid`]: 'Mostra a situação da covid no Brasil!',
         [`${prefix}inventario`]: 'Mostra seu inventário',
         [`${prefix}ping`]:  'Ver o ping do bot!',
-        [`${prefix}calcularequacao`]: 'Cacalcular equação do segundo grau!',
         [`${prefix}mudarprefixo`]: 'Mude o prefixo padrão do bot (@) para outro de sua preferência!',
+				[`${prefix}buystock`]: 'Compre ações! Exemplo: @buystock CÓDIGO QUANTIDADE'
     };
 
     const response = new Discord.MessageEmbed()

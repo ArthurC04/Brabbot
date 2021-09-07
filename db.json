@@ -4,14 +4,6 @@
       "discordUserId": "259087087322529804"
     }
   ],
-  "amongadmins": [
-    {
-      "discordUserId": "259087087322529804"
-    },
-    {
-      "discordUserId": "415641911890804747"
-    }
-  ],
   "prefixes": [
     {
       "id": "UBaG3Db2f",
@@ -21,7 +13,12 @@
     {
       "id": "rhx7nYWTV",
       "guildId": "730035593970581566",
-      "prefix": "!"
+      "prefix": "$"
+    },
+    {
+      "id": "ZPOv4X0HW",
+      "guildId": "747447582984503317",
+      "prefix": "$"
     }
   ],
   "items": [
@@ -62,10 +59,24 @@
       "emojiId": "761399733670641664"
     }
   ],
+  "stocks": [
+    {
+      "id": "1",
+      "name": "Tela, INC.",
+      "code": "TELA34",
+      "info": "Tela, Inc., é uma empresa automotiva e de armazenamento de energia brasileira, que desenvolve, produz e vende automóveis elétricos de alto desempenho, componentes para motores e transmissões para veículos elétricos e produtos à base de baterias.",
+      "value": 30,
+      "quantity": 30000,
+      "available": 29960,
+      "emojiId": "761399733670641664"
+    }
+  ],
   "users": [
     {
       "id": "oINvm4sDG",
       "discordUserId": "445256273769005086",
+      "balance": 5000,
+      "money": 1000,
       "inventory": [
         {
           "id": "1",
@@ -129,7 +140,15 @@
           "id": "1",
           "quantity": "1"
         }
-      ]
+      ],
+      "stocks": [
+        {
+          "code": "TELA34",
+          "quantity": 40
+        }
+      ],
+      "balance": 4608999997780,
+      "money": 139600000000000
     },
     {
       "id": "3mMV1egml",
