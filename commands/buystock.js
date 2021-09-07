@@ -102,7 +102,9 @@ module.exports = async (client, msg) => {
 			db.get('users').find({ discordUserId: msg.author.id }).assign({ stocks: user_stock_inventory }).write();
 	}
 
-	await db.get('stocks').find({ code: stock_code }).assign({ available: new_stock_available_quantity }).write();
+	const new_stock_value = stock_info.value + Math.floor(1 + Math.random()*(5 + 1 - 1));
+
+	await db.get('stocks').find({ code: stock_code }).assign({ available: new_stock_available_quantity, value: new_stock_value}).write();
 
 	return msg.channel.send(
 		new Discord.MessageEmbed()

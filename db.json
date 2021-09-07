@@ -65,9 +65,9 @@
       "name": "Tela, INC.",
       "code": "TELA34",
       "info": "Tela, Inc., é uma empresa automotiva e de armazenamento de energia brasileira, que desenvolve, produz e vende automóveis elétricos de alto desempenho, componentes para motores e transmissões para veículos elétricos e produtos à base de baterias.",
-      "value": 30,
+      "value": 36,
       "quantity": 30000,
-      "available": 29960,
+      "available": 29760,
       "emojiId": "761399733670641664"
     }
   ],
@@ -144,10 +144,10 @@
       "stocks": [
         {
           "code": "TELA34",
-          "quantity": 40
+          "quantity": 340
         }
       ],
-      "balance": 4608999997780,
+      "balance": 4608999988680,
       "money": 139600000000000
     },
     {
