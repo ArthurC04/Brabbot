@@ -65,10 +65,20 @@
       "name": "Tela, INC.",
       "code": "TELA34",
       "info": "Tela, Inc., é uma empresa automotiva e de armazenamento de energia brasileira, que desenvolve, produz e vende automóveis elétricos de alto desempenho, componentes para motores e transmissões para veículos elétricos e produtos à base de baterias.",
-      "value": 36,
+      "value": 46,
       "quantity": 30000,
-      "available": 29760,
-      "emojiId": "761399733670641664"
+      "available": 27510,
+      "emojiId": "884834277492162571"
+    },
+    {
+      "id": "2",
+      "name": "Appli, INC.",
+      "code": "APLI34",
+      "info": "Appli Inc. é uma empresa multinacional brasileira que tem o objetivo de projetar e comercializar produtos eletrônicos de consumo, software de computador e computadores pessoais.",
+      "value": 44,
+      "quantity": 50000,
+      "available": 45800,
+      "emojiId": "884833167616405574"
     }
   ],
   "users": [
@@ -144,11 +154,15 @@
       "stocks": [
         {
           "code": "TELA34",
-          "quantity": 340
+          "quantity": 2490
+        },
+        {
+          "code": "APLI34",
+          "quantity": 4200
         }
       ],
-      "balance": 4608999988680,
-      "money": 139600000000000
+      "balance": 4670,
+      "money": 139599999945375
     },
     {
       "id": "3mMV1egml",

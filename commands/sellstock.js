@@ -42,7 +42,7 @@ module.exports = async (client, msg) => {
 
 		const stock_code = msg.content.split(' ').slice(1)[0];
 		const stock_quantity = msg.content.split(' ').slice(2)[0];
-		if (isNaN(parseInt(stock_quantity)) === true || !stock_code || !stock_quantity || 0 === stock_quantity.length || 0 === stock_code.length) {
+		if (isNaN(parseInt(stock_quantity)) === true || parseInt(stock_quantity) <= 0 || !stock_code || !stock_quantity || 0 === stock_quantity.length || 0 === stock_code.length) {
 			return msg.channel.send(
 				new Discord.MessageEmbed()
 					.setTitle(':x: Código ou quantia não informados corretamente!')
@@ -63,17 +63,10 @@ module.exports = async (client, msg) => {
 			);
 		}
 
-		if (balance === 0 || balance < stock_info.value * stock_quantity || stock_info.available < stock_quantity) {
-			return msg.channel.send(
-				new Discord.MessageEmbed()
-					.setDescription(`:x: Dinheiro insuficiente ou ação indisponível`)
-					.setFooter('Brabbot 2021', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
-					.setColor('#011eff')
-			);
-		}
 
-		const new_balance = balance - stock_quantity * stock_info.value;
-		const new_stock_available_quantity = stock_info.available - stock_quantity;
+		const new_stock_value = stock_info.value - Math.floor(1 + Math.random() * (2 + 1 - 1));
+		const new_balance = balance + stock_quantity * new_stock_value;
+		const new_stock_available_quantity = stock_info.available + parseInt(stock_quantity);
 
 		await db.get('users').find({ discordUserId: msg.author.id }).assign({ balance: new_balance }).write();
 
@@ -88,32 +81,29 @@ module.exports = async (client, msg) => {
 				})
 				.write()
 				.id
-
-			user_stock_inventory.push({ code: stock_info.code, quantity: parseInt(stock_quantity) });
 		} else {
 			var hasStock = false;
 			user_stock_inventory.map(function (stock) {
 				if (stock.code === stock_info.code) {
-					stock.quantity = stock.quantity + parseInt(stock_quantity);
-					hasStock = true;
-				}
-				if (hasStock = false) {
-					user_stock_inventory.push({
-						"code": stock_info.code,
-						"quantity": parseInt(stock_quantity)
-					});
+					if (stock.quantity < stock_quantity) {
+						return msg.channel.send(
+							new Discord.MessageEmbed()
+								.setTitle(':x: Código ou quantia não informados corretamente!')
+								.setColor('#011eff')
+								.setFooter('Brabbot 2021', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
+						)
+					} else {
+						stock.quantity = stock.quantity - parseInt(stock_quantity);
+					}
 				}
 			})
-
 		}
-
-		const new_stock_value = stock_info.value + Math.floor(1 + Math.random() * (2 + 1 - 1));
 
 		await db.get('stocks').find({ code: stock_code }).assign({ available: new_stock_available_quantity, value: new_stock_value }).write();
 
 		return msg.channel.send(
 			new Discord.MessageEmbed()
-				.setDescription(`:white_check_mark: Sucesso, você comprou ${stock_quantity} ações de ${stock_info.code}`)
+				.setDescription(`:white_check_mark: Sucesso, você vendeu ${stock_quantity} ações de ${stock_info.code} por ${new_stock_value}$`)
 				.setFooter('Brabbot 2021', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
 				.setColor('#011eff')
 		);

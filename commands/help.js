@@ -31,7 +31,7 @@ module.exports = async (client,msg) =>{
         .setTitle(':thinking: Ajuda!')
         .setDescription(`Quais são meus comandos e o que eles fazem:`)
         .setColor('#011eff')
-        .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+        .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
     
     const commands = commandsScript(prefix);
     Object.keys(commands).forEach(command => {

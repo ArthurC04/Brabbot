@@ -8,50 +8,23 @@ const db = low(adapter);
 
 module.exports = async (client, msg) => {
 	try {
-		const user = await db.get('users').find({ discordUserId: msg.author.id }).value();
-		var money = user.money;
-		var balance = user.balance;
-
-		const default_money = 1000;
-		const default_balance = 5000;
-
-		if (!money) {
-			await db
-				.get('users')
-				.find({ discordUserId: msg.author.id })
-				.push({
-					money: default_money,
-				})
-				.write()
-				.id
-
-			money = default_money;
+		function emoji(id) {
+			return client.emojis.cache.get(id).toString();
 		}
-		if (!balance) {
-			await db
-				.get('users')
-				.find({ discordUserId: msg.author.id })
-				.push({
-					balance: default_balance,
-				})
-				.write()
-				.id
-
-			balance = default_balance;
-		}
+		const stocks = await db.get('stocks').value();
 
 		let embed = new Discord.MessageEmbed()
-			.setTitle(`💰 Seu saldo:`)
-			.setDescription('Aqui está seu saldo:')
+			.setTitle(`💱 Ações:`)
+			.setDescription('Aqui estão as ações disponíveis')
 			.setFooter('Brabbot 2021', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
 			.setColor('#011eff')
-
-		embed.addField('💵 Dinheiro: ', `$${money}`);
-		embed.addField('🏦 Banco: ', `$${balance}`);
-		return msg.channel.send(embed);
-
+		stocks.forEach(stock => {
+			embed.addField(`${emoji(stock.emojiId)} ${stock.code} - ${stock.name}`, `Valor: ${stock.value}$`, true);
+			embed.addField(`📦 Quantidade disponível: ${stock.available}`, `💳 Valor de mercado: ${(stock.quantity - stock.available) * stock.value}$`, true)
+			embed.addField('💻 Sobre: ', `${stock.info}`)
+		});
+		msg.channel.send(embed);
 	} catch (err) {
-
 		console.log(err);
 		return msg.channel.send(
 			new Discord.MessageEmbed()
@@ -60,4 +33,4 @@ module.exports = async (client, msg) => {
 				.setColor('#011eff')
 		);
 	}
-};
+}
