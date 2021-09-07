@@ -13,7 +13,7 @@ module.exports = async (client,msg) => {
             new Discord.MessageEmbed()
                 .setTitle(':x: Prefixo não informado!')
                 .setColor('#011eff')
-                .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+                .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
         )
     }
     if(!msg.member.hasPermission('MANAGE_GUILD')){
@@ -21,7 +21,7 @@ module.exports = async (client,msg) => {
             new Discord.MessageEmbed()
                 .setTitle(':x: Você não tem permissão!')
                 .setColor('#011eff')
-                .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+                .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
         )
     }
 
@@ -43,7 +43,7 @@ module.exports = async (client,msg) => {
             new Discord.MessageEmbed()
                 .setTitle(':x: Este é o prefixo atual!')
                 .setColor('#011eff')
-                .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+                .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
         )
        } else {
         await db.get('prefixes').find({guildId: msg.guild.id}).assign({prefix: `${new_prefix}`}).write();
@@ -55,6 +55,6 @@ module.exports = async (client,msg) => {
             .setTitle(':white_check_mark: Prefixo Alterado!')
             .setDescription(`Prefixo alterado para ${new_prefix} com sucesso!`)
             .setColor('#011eff')
-            .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+            .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
     )
 }

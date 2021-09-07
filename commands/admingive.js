@@ -13,7 +13,7 @@ module.exports = async (client,msg) =>{
         return msg.channel.send(
             new Discord.MessageEmbed()
               .setDescription(`:x: Você não possui permissão!`)
-              .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+              .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
               .setColor('#011eff')
           );
     }
@@ -44,7 +44,7 @@ module.exports = async (client,msg) =>{
         .push({
             id: shortid.generate(),
             discordUserId: taggedUser.id,
-            inventory: [{id: item_info.id, quantity: '1'}],
+            inventory: [{id: item_info.id, quantity: 1}],
         })
         .write()
         .id
@@ -63,7 +63,7 @@ module.exports = async (client,msg) =>{
 
         if(!taggedUserHaveItem) {
               let inventory = db.get('users').find({ discordUserId: taggedUser.id }).get('inventory').value();
-              inventory.push({id: item_info.id, quantity: '1'});
+              inventory.push({id: item_info.id, quantity: 1});
               db.get('users').find({ discordUserId: taggedUser.id }).assign({ inventory }).write();
               return msg.channel.send(
                 new Discord.MessageEmbed()
@@ -91,7 +91,7 @@ module.exports = async (client,msg) =>{
       return msg.channel.send(
         new Discord.MessageEmbed()
           .setDescription(`:x: Algo deu errado! Tente entrar em contato com o desenvolvedor.`)
-          .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+          .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
           .setColor('#011eff')
       );
    }

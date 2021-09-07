@@ -19,20 +19,19 @@ module.exports = async (client,msg) =>{
 
     const descriptions = {
         [`${prefix}help`]: 'Lista dos comandos!',
-        [`${prefix}among`]: 'Chame a galera pra jogar among us!',
         [`${prefix}clear`]: 'Limpar o chat!',
         [`${prefix}covid`]: 'Mostra a situação da covid no Brasil!',
         [`${prefix}inventario`]: 'Mostra seu inventário',
         [`${prefix}ping`]:  'Ver o ping do bot!',
-        [`${prefix}calcularequacao`]: 'Cacalcular equação do segundo grau!',
         [`${prefix}mudarprefixo`]: 'Mude o prefixo padrão do bot (@) para outro de sua preferência!',
+				[`${prefix}buystock`]: 'Compre ações! Exemplo: @buystock CÓDIGO QUANTIDADE'
     };
 
     const response = new Discord.MessageEmbed()
         .setTitle(':thinking: Ajuda!')
         .setDescription(`Quais são meus comandos e o que eles fazem:`)
         .setColor('#011eff')
-        .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/attachments/719722218673799228/742718851610968155/download.png')
+        .setFooter('Brabbot 2020', 'https://cdn.discordapp.com/avatars/823899858942951486/6b63aa8ed16856c2d74023323b4d0394.webp')
     
     const commands = commandsScript(prefix);
     Object.keys(commands).forEach(command => {
